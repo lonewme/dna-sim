@@ -114,9 +114,9 @@ Run the tests and the application:
 
 ## The application
 
-- **DNA Simulation**: one long strand, to see how an insertion or deletion breaks decoding.
-- **Chunks + copies**: the repair pipeline, with sliders for strand size, copies and mutation rates.
-- **Experiment**: runs hundreds of trials per copy count and plots the recovery rate.
+- **Byte  Simulation**: one long strand, to see how an insertion or deletion breaks decoding.
+- **Mutating Simulation**: the repair pipeline, with sliders for strand size, copies and mutation rates.
+- **Experiment Simulation**: runs hundreds of trials per copy count and plots the recovery rate.
 
 Every mutation run uses a seed, so any result can be reproduced exactly. A
 "Pure Random" option draws a new seed on every run and shows which seed was used.
