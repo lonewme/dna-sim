@@ -22,7 +22,7 @@ std::string printable(std::string text) {
 void SimulationPanel::draw() {
         ImGui::SetNextWindowPos(ImVec2(10, 10), ImGuiCond_FirstUseEver);
         ImGui::SetNextWindowSize(ImVec2(490, 680), ImGuiCond_FirstUseEver);
-    ImGui::Begin("DNA Simulation");
+    ImGui::Begin("Byte Simulation");
 
     // --- 1. Encode ---
     ImGui::SeparatorText("1. Input text");

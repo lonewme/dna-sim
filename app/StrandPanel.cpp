@@ -34,7 +34,7 @@ void draw_strands(const char* id, const std::vector<dna::DnaSequence>& strands,
 void StrandPanel::draw() {
     ImGui::SetNextWindowPos(ImVec2(520, 20), ImGuiCond_FirstUseEver);
     ImGui::SetNextWindowSize(ImVec2(470, 660), ImGuiCond_FirstUseEver);
-    ImGui::Begin("Chunks + copies");
+    ImGui::Begin("Mutating Simulation");
 
     // --- 1. Encode ---
     ImGui::SeparatorText("1. Input text");

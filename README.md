@@ -9,7 +9,7 @@
   and measures how well redundancy can repair it.
 </p>
 
-<!-- Add a screenshot at docs/screenshot.png (Win+Shift+S), or delete the next line. -->
+
 ![Screenshot of the application](docs/screenshot.png)
 
 ## What it does
@@ -56,7 +56,7 @@ The text is cut into chunks. Each chunk becomes its own short strand:
 
 ## Results
 
-<!-- Fill in the measured row from the Experiment window (1000 trials). -->
+
 
 Text `Hello, DNA!`, 4 payload bytes per strand, 2% substitution rate.
 Perfect recovery rate by number of copies per strand:
@@ -99,7 +99,7 @@ pacman -S --needed mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-cmake \
 Then build (the first configure downloads GLFW, Dear ImGui and doctest, so it needs internet):
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/dna-sim.git
+git clone https://github.com/lonewme/dna-sim.git
 cd dna-sim
 cmake -S . -B build -G Ninja -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc
 cmake --build build
@@ -119,15 +119,14 @@ Run the tests and the application:
 - **Experiment**: runs hundreds of trials per copy count and plots the recovery rate.
 
 Every mutation run uses a seed, so any result can be reproduced exactly. A
-"pure random" option draws a new seed on every run and shows which seed was used.
+"Pure Random" option draws a new seed on every run and shows which seed was used.
 
 ## How this project was built
 
-<!-- Edit this section so it describes your own work accurately. -->
 
 I built this as a first-year Computer Engineering student, working with an AI
-assistant (Claude) for design discussions and code. I set up the toolchain,
-ran and tested every step, and made design decisions along the way.
+assistant (Claude Sonnet 5.5) for design discussions and code. I set up the toolchain,
+ran and tested every step, and made design decisions along the way. I always interested in storing datas in different ways.
 
 ## Roadmap
 
@@ -137,4 +136,4 @@ ran and tested every step, and made design decisions along the way.
 
 ## License
 
-<!-- Choose a license (MIT is a common choice) and add a LICENSE file. -->
+MIT License. See [LICENSE](LICENSE).

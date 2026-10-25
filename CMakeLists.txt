@@ -83,8 +83,22 @@ target_link_libraries(dna_tests PRIVATE dna_core doctest::doctest)
 add_test(NAME dna_tests COMMAND dna_tests)
 
 # --- The application: GUI on top of the core ---
-add_executable(dna_sim app/main.cpp app/SimulationPanel.cpp app/StrandPanel.cpp app/ExperimentPanel.cpp)
+add_executable(dna_sim
+    app/main.cpp
+    app/SimulationPanel.cpp
+    app/StrandPanel.cpp
+    app/ExperimentPanel.cpp
+)
 target_link_libraries(dna_sim PRIVATE dna_core imgui)
+
+# Windows: embed the icon (used for the .exe file and the window title bar/taskbar)
+if(WIN32)
+    enable_language(RC)
+    set(APP_ICON_PATH "${CMAKE_SOURCE_DIR}/app/resources/icon.ico")
+    configure_file(app/app.rc.in ${CMAKE_BINARY_DIR}/app.rc @ONLY)
+    set_source_files_properties(${CMAKE_BINARY_DIR}/app.rc PROPERTIES OBJECT_DEPENDS ${APP_ICON_PATH})
+    target_sources(dna_sim PRIVATE ${CMAKE_BINARY_DIR}/app.rc)
+endif()
 
 # MinGW: bundle the runtime so the .exe runs anywhere
 if(MINGW)
