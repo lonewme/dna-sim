@@ -64,7 +64,7 @@ Perfect recovery rate by number of copies per strand:
 | Copies | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|---|
 | Theory (%) | 7.0 | 27.9 | 50.4 | 68.1 | 80.2 | 88.0 | 92.8 | 95.7 |
-| Measured (%) | | | | | | | | |
+| Measured (%) | 5 |  28  |  50  |  70  | 81.5 |  89  |  95  |  95  |
 
 The theory comes from `(1 - (1 - 0.98^44)^copies)^3`: a 44-base strand is
 undamaged with probability 0.98^44, and there are 3 chunks.
