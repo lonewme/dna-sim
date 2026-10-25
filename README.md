@@ -58,7 +58,7 @@ The text is cut into chunks. Each chunk becomes its own short strand:
 
 
 
-Text `Hello, DNA!`, 4 payload bytes per strand, 2% substitution rate.
+Text `Hello, DNA!`, 4 payload bytes per strand, 2% substitution rate with 200 trials.
 Perfect recovery rate by number of copies per strand:
 
 | Copies | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
