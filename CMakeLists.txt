@@ -61,17 +61,18 @@ add_library(dna_core STATIC
     core/src/DnaSequence.cpp
     core/src/FixedLengthCodec.cpp
     core/src/Mutator.cpp
+    core/src/Simulation.cpp
 )
 target_include_directories(dna_core PUBLIC core/include)
 
 # --- Tests ---
 enable_testing()
-add_executable(dna_tests tests/test_codec.cpp tests/test_mutator.cpp)
+add_executable(dna_tests tests/test_codec.cpp tests/test_mutator.cpp tests/test_simulation.cpp)
 target_link_libraries(dna_tests PRIVATE dna_core doctest::doctest)
 add_test(NAME dna_tests COMMAND dna_tests)
 
 # --- The application: GUI on top of the core ---
-add_executable(dna_sim app/main.cpp)
+add_executable(dna_sim app/main.cpp app/SimulationPanel.cpp)
 target_link_libraries(dna_sim PRIVATE dna_core imgui)
 
 # MinGW: bundle the runtime so the .exe runs anywhere
