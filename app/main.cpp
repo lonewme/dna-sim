@@ -4,13 +4,14 @@
 #include "imgui_impl_opengl3.h"
 #include "SimulationPanel.hpp"
 #include "StrandPanel.hpp"
+#include "ExperimentPanel.hpp"
 int main() {
     if (!glfwInit()) {
         return 1;
     }
 
     GLFWwindow* window =
-        glfwCreateWindow(1000, 700, "DNA Storage Simulation", nullptr, nullptr);
+        glfwCreateWindow(1500, 750, "DNA Storage Simulation", nullptr, nullptr);
     if (!window) {
         glfwTerminate();
         return 1;
@@ -25,6 +26,7 @@ int main() {
 
     SimulationPanel panel;
     StrandPanel strand_panel;
+        ExperimentPanel experiment_panel;
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
 
@@ -34,6 +36,7 @@ int main() {
 
            panel.draw();
             strand_panel.draw();
+                    experiment_panel.draw();
         ImGui::Render();
         int width = 0, height = 0;
         glfwGetFramebufferSize(window, &width, &height);
