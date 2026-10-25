@@ -126,7 +126,7 @@ Every mutation run uses a seed, so any result can be reproduced exactly. A
 
 I built this as a first-year Computer Engineering student, working with an AI
 assistant (Claude Sonnet 5.5) for design discussions and code. I set up the toolchain,
-ran and tested every step, and made design decisions along the way. I always interested in storing different datas in different ways.
+ran and tested every step, and made design decisions along the way. I have always been interested in storing different kinds of data in different ways.
 
 ## Roadmap
 
