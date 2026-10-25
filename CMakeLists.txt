@@ -62,12 +62,14 @@ add_library(dna_core STATIC
     core/src/FixedLengthCodec.cpp
     core/src/Mutator.cpp
     core/src/Simulation.cpp
+    core/src/Crc.cpp
+    core/src/ChunkedCodec.cpp
 )
 target_include_directories(dna_core PUBLIC core/include)
 
 # --- Tests ---
 enable_testing()
-add_executable(dna_tests tests/test_codec.cpp tests/test_mutator.cpp tests/test_simulation.cpp)
+add_executable(dna_tests tests/test_codec.cpp tests/test_mutator.cpp tests/test_simulation.cpp tests/test_chunked.cpp)
 target_link_libraries(dna_tests PRIVATE dna_core doctest::doctest)
 add_test(NAME dna_tests COMMAND dna_tests)
 
