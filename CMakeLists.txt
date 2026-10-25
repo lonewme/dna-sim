@@ -4,6 +4,7 @@ project(DNASimulation LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # CMake 4.x rejects very old libraries unless we allow this
 set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
@@ -27,7 +28,15 @@ FetchContent_Declare(
     GIT_TAG        v1.92.0
 )
 
-FetchContent_MakeAvailable(glfw imgui)
+# --- doctest (unit tests) ---
+FetchContent_Declare(
+    doctest
+    GIT_REPOSITORY https://github.com/doctest/doctest.git
+    GIT_TAG        v2.4.11
+)
+set(DOCTEST_WITH_TESTS OFF CACHE BOOL "" FORCE)
+
+FetchContent_MakeAvailable(glfw imgui doctest)
 
 find_package(OpenGL REQUIRED)
 
@@ -46,9 +55,23 @@ target_include_directories(imgui PUBLIC
 )
 target_link_libraries(imgui PUBLIC glfw OpenGL::GL)
 
-# --- The application ---
+# --- Core library: all DNA logic, no GUI code ---
+add_library(dna_core STATIC
+    core/src/Nucleotide.cpp
+    core/src/DnaSequence.cpp
+    core/src/FixedLengthCodec.cpp
+)
+target_include_directories(dna_core PUBLIC core/include)
+
+# --- Tests ---
+enable_testing()
+add_executable(dna_tests tests/test_codec.cpp)
+target_link_libraries(dna_tests PRIVATE dna_core doctest::doctest)
+add_test(NAME dna_tests COMMAND dna_tests)
+
+# --- The application: GUI on top of the core ---
 add_executable(dna_sim app/main.cpp)
-target_link_libraries(dna_sim PRIVATE imgui)
+target_link_libraries(dna_sim PRIVATE dna_core imgui)
 
 # MinGW: bundle the runtime so the .exe runs anywhere
 if(MINGW)
