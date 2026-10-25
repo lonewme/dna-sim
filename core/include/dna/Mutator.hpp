@@ -39,5 +39,5 @@ private:
     MutationRates rates_;
     std::mt19937 rng_;
 };
-
+    std::uint32_t random_seed();
 }  // namespace dna

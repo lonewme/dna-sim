@@ -15,4 +15,5 @@ private:
     float insertion_ = 0.0f;
     float deletion_ = 0.0f;
     int seed_ = 1;
+    bool pure_random_ = false;
 };

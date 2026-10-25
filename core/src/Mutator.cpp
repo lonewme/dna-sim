@@ -8,8 +8,12 @@ namespace {
 
 bool is_probability(double p) { return p >= 0.0 && p <= 1.0; }
 
-}  // namespace
-
+}
+  // namespace
+    std::uint32_t random_seed() {
+    std::random_device device;
+    return device();
+    }
 Mutator::Mutator(MutationRates rates, std::uint32_t seed)
     : rates_(rates), rng_(seed) {
     if (!is_probability(rates.substitution) || !is_probability(rates.insertion) ||

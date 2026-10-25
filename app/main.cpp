@@ -3,7 +3,7 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 #include "SimulationPanel.hpp"
-
+#include "StrandPanel.hpp"
 int main() {
     if (!glfwInit()) {
         return 1;
@@ -24,7 +24,7 @@ int main() {
     ImGui_ImplOpenGL3_Init("#version 130");
 
     SimulationPanel panel;
-
+    StrandPanel strand_panel;
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
 
@@ -33,7 +33,7 @@ int main() {
         ImGui::NewFrame();
 
            panel.draw();
-
+            strand_panel.draw();
         ImGui::Render();
         int width = 0, height = 0;
         glfwGetFramebufferSize(window, &width, &height);
